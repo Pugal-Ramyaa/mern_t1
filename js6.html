@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <h1> Letters in alphabetical order </h1>
+  </head>
+  
+  <body>
+    <input type="text" id="str" name="string">
+    <p id="disp"> <p>
+    <button onclick="Sort()">Submit</button>
+    <script>
+      function Sort(){
+        let num1=String(document.getElementById("str").value);
+        const ans=num1.split('').sort().join('');
+        document.getElementById("disp").innerHTML=ans;
+      }
+      
+    </script>
+  </body>
+</html>

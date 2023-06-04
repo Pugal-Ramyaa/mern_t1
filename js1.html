@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button type="button" onclick="date()">show Date</button>
+<br>
+<p id="demo1"></p><br>
+<button type="button" onclick="time()">show Time</button>
+<p id="demo2"></p><br>
+
+<script>
+function date(){
+	const d = new Date();
+	document.getElementById("demo1").innerHTML = d.toDateString();
+    }
+    
+function time(){
+	const d = new Date();
+    document.getElementById("demo2").innerHTML = d;
+    }
+</script>
+</body>
+</html>

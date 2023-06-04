@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <h1> Reverse a number </h1>
+  </head>
+  <body>
+    <input type="number" id="num">
+    <p id="disp"> <p>
+    <button onclick="Reverse()">Submit</button>
+    <script>
+      function Reverse(){
+        let num1=Number(document.getElementById("num").value);
+        const ans=parseInt(num1.toString().split('').reverse().join(''));
+        document.getElementById("disp").innerHTML=ans;
+      }
+    </script>
+  </body>
+</html>

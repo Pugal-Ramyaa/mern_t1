@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Trigger or pause a CSS animation in Javascript</title>
+    <style>
+      .display-anim {
+    height: 700px;
+    margin: 12px 0;
+    background: url("https://www.transparentpng.com/thumb/batman/Ws0qpC-batman-picture.png") no-repeat left center #57A6F6;
+    -webkit-animation: test 4s infinite;
+    animation: test 4s infinite;
+}
+
+@-webkit-keyframes test {
+    50% {
+        background-position: right center;
+    }
+}
+
+@keyframes test {
+    50% {
+        background-position: right center;
+    }
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="display-anim"></div>
+    <button type="button" id="play_stop">Trigger/Pause</button>
+  </body>
+
+  <script type="text/javascript">
+        var anim = document.querySelectorAll('.display-anim');
+
+    document.getElementById('play_stop').onclick = function () {
+        for (var i = 0; i < anim.length; i++) {
+            if (anim[i].style.animationPlayState == 'paused') {
+                anim[i].style.animationPlayState = 'running';
+            }
+            else {
+                anim[i].style.animationPlayState = 'paused';
+            }
+        }
+    }
+  </script>
+</html>

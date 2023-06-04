@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <script defer src="./index.js"></script>
+</head>
+<script>
+  const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const website= document.getElementById('website');
+const message1 = document.getElementById('message1');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const isValidurl = website => {
+    const valid = /^(ftp|http|https):\/\/[^"]+$/;
+    return valid.test(String(website).toLowerCase());
+}
+
+const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const websiteValue = website.value.trim();
+    const messageValue = message1.value.trim();
+  
+    if(usernameValue === '') {
+      document.getElementById('username1').innerHTML="This field is required";
+    }
+
+    if(emailValue === '') {
+        document.getElementById('email1').innerHTML="This field is required";
+    } else if (!isValidEmail(emailValue)) {
+        document.getElementById('email1').innerHTML="A Valid email address is required";
+    }
+  
+    if(websiteValue === '') {
+       document.getElementById('website1').innerHTML="This field is required";
+    } else if (!isValidurl(websiteValue)) {
+        document.getElementById('email1').innerHTML="A Valid URL is required";
+    }
+    if(messageValue === '') {
+        document.getElementById('message2').innerHTML="This field is required";
+    }
+    
+};
+</script>
+<body>
+    <div class="container">
+        <form id="form" action="/">
+            <div class="input-control">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text">
+                <p style="display:inline-block" id="username1"></p>
+            </div>
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <p style="display:inline-block" id="email1"></p>
+            </div>
+            <div class="input-control">
+                <label for="website">website</label>
+                <input id="website"name="website" type="message">
+                <p style="display:inline-block" id="website1"></p>
+            </div>
+            <div class="input-control">
+                <br>
+                <label for="message1">message</label>
+              <textarea id="message1" rows="4" cols="30" ></textarea>
+                <p style="display:inline-block" id="message2"></p>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

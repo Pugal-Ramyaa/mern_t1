@@ -1,0 +1,122 @@
+
+<html  style="background-color:#a12a57;">
+<head>
+  <script defer src="./index.js"></script>
+</head>
+<script>
+  const form = document.getElementById('form');
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const password= document.getElementById('password');
+const genderm= document.getElementById('genderm');
+const genderf= document.getElementById('genderf');
+const gendero= document.getElementById('gendero');
+const contact= document.getElementById('contact');
+const about= document.getElementById('about');
+const zipcode= document.getElementById('zipcode');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const validateInputs = () => {
+    const nameValue = name.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const zipcodeValue = zipcode.value.trim();
+  
+    const contactValue = contact.value.trim(); 
+    const aboutValue = about.value.trim();
+  
+  
+    if(nameValue === '') {
+      document.getElementById('name1').innerHTML="POOR";
+    }
+    if(emailValue === '') {
+        document.getElementById('email1').innerHTML="POOR";
+    } else if (!isValidEmail(emailValue)) {
+        document.getElementById('email1').innerHTML="INVALID";
+    }
+    if(passwordValue === '') {
+      document.getElementById('password1').innerHTML="POOR";
+    }
+    if(contactValue === '') {
+      document.getElementById('contact1').innerHTML="POOR";
+    }
+    if(zipcodeValue === '') {
+      document.getElementById('zipcode1').innerHTML="POOR";
+    }
+    if(aboutValue===''){
+      document.getElementById('about1').innerHTML="POOR";
+    }
+};
+  </script>
+<body>
+<form id="form" action="/">
+<table width="70%" style="background-color:#742343; margin-left:auto;margin-right:auto;color:white;padding:30px;" >
+<tr>
+<th  width="25%" style="text-align:right">Name:</th>
+<td  width="75%"><input type="text" size=50vh id="name"><p style="display:inline-block;color:white" id="name1"></p></td>
+</tr>
+
+<tr>
+<th  width="25%" style="text-align:right">Email:</th>
+<td  width="75%"><input type="text" size=50vh id="email"><p style="display:inline-block;color:white" id="email1"></p></td>
+</tr>
+
+<tr>
+<th width="25%" style="text-align:right">Password</th>
+<td width="75%"><input type="password" size=50vh id="password"><p style="display:inline-block;color:white" id="password1"></p></td>
+</tr>
+<tr>
+<th width="25%" style="text-align:right">Phone Number</th>
+<td width="75%"><input type="number" size=50vh id="contact"><p style="display:inline-block;color:white" id="contact1"></p></td>
+</tr>
+<tr>
+<th width="25%" style="text-align:right">Gender</th>
+<td width="75%"><input type="radio" name=gender size=50vh id="genderm">Male<p style="display:inline-block;color:white" id="gender1"></p>
+  <input type="radio" name=gender size=100vh id="genderf">Female<p style="display:inline-block;color:white" id="gender1"></p>
+  <input type="radio" name=gender size=100vh id="gendero">Other<p style="display:inline-block;color:white" id="gender1"></p>
+</td>
+
+<tr>
+<th width="25%" style="text-align:right">Language</th>
+<td width="75%">
+<select name=Language>
+<option>Tamil</option>
+<option>Korean</option>
+<option>English</option>
+</select>
+</td>
+</tr>
+  
+<tr>
+<th width="25%" style="text-align:right">ZipCode</th>
+<td width="75%"><input type="number" size=50vh id="zipcode"><p style="display:inline-block;color:white" id="zipcode1"></p></td>
+</tr>
+<tr>
+<th width="25%" style="text-align:right">About</th>
+<td width="75%"><textarea rows="4" cols="50" id="about" placeholder="write about yourself"></textarea><p style="display:inline-block;color:white" id="about1"></p></td>
+</tr>
+<tr>
+  <td colspan="2">
+    <div style="text-align:center">
+      <button type="submit" style="background-color:white;color:black;border-radius:12px;padding:10px 100px;border:solid 1px black;">REGISTER</button>
+    </div>
+  </td>
+</tr>
+
+</table>
+</form>
+
+</body>
+
+</html>

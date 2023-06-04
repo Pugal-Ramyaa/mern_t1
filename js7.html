@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <h1> Multiplication / Division </h1>
+  </head>
+  
+  <body>
+    <p style="display:inline-block">First Number:</p>
+    <input type="number" id="num1" name="number">
+    <br>
+    <p style="display:inline-block">Second Number:</p>
+    <input type="number" id="num2" name="number">
+    <br>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <p> The Result is : <p>
+    <p id="disp"><p>
+    <script>
+      function multiply(){
+        let nums1=Number(document.getElementById("num1").value);
+        let nums2=Number(document.getElementById("num2").value);
+        document.getElementById("disp").innerHTML=nums1*nums2;
+      }
+      function divide(){
+        let nums1=Number(document.getElementById("num1").value);
+        let nums2=Number(document.getElementById("num2").value);
+        document.getElementById("disp").innerHTML=nums1/nums2;
+      }
+      
+    </script>
+  </body>
+</html>

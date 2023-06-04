@@ -1,0 +1,67 @@
+
+<html  style="background-color:white">
+<head>
+  <script defer src="./index.js"></script>
+</head>
+ <script>
+   const form = document.getElementById('form');
+const name = document.getElementById('name');
+const password = document.getElementById('password');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const validateInputs = () => {
+      const nameValue = name.value.trim();
+      const passwordValue = password.value.trim();
+      if(nameValue === '') {
+        document.getElementById('name1').innerHTML="Enter a valid username";
+      }
+      if(passwordValue === '') {
+        document.getElementById('password1').innerHTML="Enter a valid password";
+      }
+}
+
+
+
+  </script>
+<body>
+  <br>
+  <br>
+  <br>
+<form id="form" action="/">
+<table width="30%" style="background-color:#f0f0f0; margin-left:auto;margin-right:auto;color:black;padding:30px;" >
+  <tr colspan="2">
+    <td style="text-align:center;font-size:3rem">
+      <i>Instagram</i></td>
+      </tr>
+<tr  style="text-align:center;">
+<td width="10%"><input type="text" size=10vh id="name" placeholder="Username" style="background-color:white;color:black;padding:10px 100px;border:solid 1px grey;"><p style="display:inline-block;color:red;" id="name1"></p></td>
+</tr>
+
+<tr  style="text-align:center">
+<td width="75%"><input type="password" size=10vh id="password" placeholder="password" style="background-color:white;color:black;padding:10px 100px;border:solid 1px grey;"><p style="display:inline-block;color:red;" id="password1"></p></td>
+</tr>
+<tr>
+  <td colspan="2">
+    <div style="text-align:center">
+      <br>
+      <button type="submit" style="background-color:blue;color:white;padding:10px 130px;border:solid 1px blue;">Log in</button>
+    </div>
+  </td>
+</tr>
+<tr>
+<td >
+<input type="checkbox" name="check">Remember me
+<p style="color:blue;display:inline-block;float:right">Forgot password ?</p>
+</td>
+</tr>
+</table>
+</form>
+  <p style="text-align:center"> Don't have an account ? <a href='#'>Sign up here</a></p>
+</body>
+
+</html>
